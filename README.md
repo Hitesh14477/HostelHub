@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# HostelHub - Smart Hostel Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+HostelHub is a comprehensive, modern, and offline-first hostel management system designed to streamline operations for both students and wardens. Built with React, Firebase, and Tailwind CSS, HostelHub provides real-time updates and seamless management of complaints, leave requests, room services, notices, and night attendance.
 
-Currently, two official plugins are available:
+## Features
+- **Role-based Access Control**: Dedicated dashboards and customized interfaces for Students and Wardens.
+- **Complaints Management**: Students can raise issues, while Wardens can track, prioritize, and resolve them efficiently.
+- **Leave Requests**: Automated system for submitting, reviewing, and approving/rejecting leave applications.
+- **Night Attendance**: Wardens can quickly search, verify, and record daily night attendance with intelligent filtering.
+- **Notice Board**: Instant announcements and urgent pinned notices managed by the administration.
+- **Room Services**: Students can request maintenance or room services directly from their dashboard.
+- **Visitor Logs**: Keep a secure track of visitor requests and approvals.
+- **Account Management**: Self-service tools to change passwords or delete accounts securely.
+- **Offline Capabilities**: Intelligent fallback caching using `localStorage` ensures the app remains functional and responsive even during network drops.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **Frontend Core**: React.js (Vite), JavaScript (ES6+), JSX
+- **Styling & UI**: Tailwind CSS, shadcn/ui, Framer Motion, Lucide Icons, Recharts
+- **Backend & Database**: Firebase Authentication, Cloud Firestore
+- **State Management**: React Context API, custom data hooks
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn
+- A Firebase Project configured with Authentication (Email/Password & Google) and Firestore Database.
 
-## Expanding the ESLint configuration
+### Installation
+1. Navigate to the project directory:
+   ```bash
+   cd "HostelHub final project"
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. Install the required dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add your Firebase configuration:
+   ```env
+   VITE_FIREBASE_API_KEY=your_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   VITE_FIREBASE_PROJECT_ID=your_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+   VITE_FIREBASE_APP_ID=your_app_id
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Building for Production
+To generate an optimized, production-ready bundle:
+```bash
+npm run build
 ```
+The compiled files will be available in the `dist` directory.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License
+&copy; 2026 HostelHub Inc. All rights reserved.
